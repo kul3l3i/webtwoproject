@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<categories>
+    <category>
+        <id>1</id>
+        <name>Men's Activewear</name>
+        <description>Clothing for men's workout and training</description>
+    </category>
+    <category>
+        <id>2</id>
+        <name>Women's Activewear</name>
+        <description>Clothing for women's workout and training</description>
+    </category>
+    <category>
+        <id>3</id>
+        <name>Footwear</name>
+        <description>Athletic shoes and training footwear</description>
+    </category>
+    <category>
+        <id>4</id>
+        <name>Accessories</name>
+        <description>Workout accessories and fitness equipment</description>
+    </category>
+</categories>

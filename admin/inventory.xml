@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inventory_log>
+    <entry>
+        <id>IL10001</id>
+        <product_id>2006</product_id>
+        <previous_stock>40</previous_stock>
+        <new_stock>42</new_stock>
+        <change>+2</change>
+        <reason>Inventory restock</reason>
+        <admin_id>1</admin_id>
+        <timestamp>2025-04-10 14:25:30</timestamp>
+    </entry>
+    <entry>
+        <id>IL10002</id>
+        <product_id>2019</product_id>
+        <previous_stock>20</previous_stock>
+        <new_stock>18</new_stock>
+        <change>-2</change>
+        <reason>Order #T10002</reason>
+        <admin_id>system</admin_id>
+        <timestamp>2025-04-10 16:45:12</timestamp>
+    </entry>
+    <!-- More entries here -->
+</inventory_log>

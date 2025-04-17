@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - HirayaFit</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #111111;
+            --secondary: #0071c5;
+            --accent: #e5e5e5;
+            --light: #ffffff;
+            --dark: #111111;
+            --grey: #767676;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+        }
+        
+        .top-bar {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        
+        .header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .search-bar {
+            flex-grow: 1;
+            max-width: 500px;
+            margin: 0 30px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border: 1px solid #e5e5e5;
+            border-radius: 25px;
+            background-color: #f5f5f5;
+            font-size: 14px;
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--grey);
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--grey);
+        }
+        
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-icons a {
+            margin-left: 20px;
+            font-size: 18px;
+            color: var(--dark);
+            text-decoration: none;
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Account dropdown styling */
+        .account-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .account-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            z-index: 1;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .account-dropdown-content:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid white;
+        }
+        
+        .account-dropdown-content a {
+            color: var(--dark);
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .account-dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .account-dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: var(--secondary);
+        }
+        
+        .account-dropdown-content h3 {
+            padding: 12px 20px;
+            margin: 0;
+            font-size: 14px;
+            color: var(--grey);
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #f0f0f0;
+            border-radius: 4px 4px 0 0;
+            font-weight: 500;
+        }
+        
+        .account-dropdown.active .account-dropdown-content {
+            display: block;
+        }
+        
+        /* Navigation Styles */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--light);
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .main-nav a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--secondary);
+        }
+        
+        /* Hover underline effect */
+        .main-nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            left: 50%;
+            bottom: 10px;
+            transition: all 0.2s ease;
+            transform: translateX(-50%);
+        }
+        
+        .main-nav a:hover:after, .main-nav a.active:after {
+            width: 60%;
+        }
+
+        /* About Page Specific Styles */
+.page-header {
+    position: relative;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.page-header img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.header-content {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+.breadcrumbs {
+    background-color: #f5f5f5;
+    padding: 10px 0;
+}
+        
+        .breadcrumbs .container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumbs a, .breadcrumbs span {
+            font-size: 14px;
+            color: #777;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            color: var(--secondary);
+        }
+        
+        .breadcrumbs .separator {
+            margin: 0 10px;
+            color: #ccc;
+        }
+
+        /* Contact Page Specific Styles */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            padding-right: 30px;
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .contact-info h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            flex-grow: 1;
+        }
+
+        .contact-text h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .contact-text p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .contact-form-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .contact-form-container h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #005fa8;
+        }
+
+        .contact-social {
+            margin-top: 30px;
+        }
+
+        .contact-social h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f5f5f5;
+            color: var(--secondary);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Map section */
+        .map-section {
+            height: 400px;
+            background-color: #f5f5f5;
+            margin-top: 40px;
+        }
+
+        .map-container {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .faq-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .faq-header p {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 18px 20px;
+            background-color: white;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--secondary);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding-bottom: 18px;
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--secondary);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 5px;
+        }
+
+        /* CTA Section */
+        .newsletter-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("/api/placeholder/1600/500") no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            color: white;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-container h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-container p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 15px;
+        }
+
+        .newsletter-btn {
+            padding: 0 25px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #005fa8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-column p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .footer-contact {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact .contact-icon {
+            width: auto;
+            height: auto;
+            background-color: transparent;
+            margin-right: 10px;
+            color: var(--secondary);
+            font-size: 16px;
+        }
+        
+        .contact-text {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 22px;
+            cursor: pointer;
+        }
+        
+        /* Media queries for responsive design */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .search-bar {
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .search-bar {
+                max-width: none;
+                margin: 10px 0;
+            }
+            
+            .navbar {
+                flex-wrap: wrap;
+            }
+            
+            .menu-toggle {
+                display: block;
+                order: 1;
+            }
+            
+            .logo {
+                order: 2;
+                margin: 0 auto;
+            }
+            
+            .nav-icons {
+                order: 3;
+            }
+            
+            .search-bar {
+                order: 4;
+                width: 100%;
+            }
+            
+            .main-nav {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .main-nav.active {
+                display: flex;
+            }
+            
+            .account-dropdown-content {
+                position: fixed;
+                top: 60px;
+                right: 15px;
+                width: calc(100% - 30px);
+                max-width: 300px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 4px;
+                padding: 12px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+            
+            .faq-question {
+                font-size: 15px;
+                padding: 15px;
+            }
+            
+            .faq-answer p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div>FREE SHIPPING ON ORDERS OVER $75</div>
+            <div>
+                <a href="#">Help</a>
+                <a href="#">Order Tracker</a>
+                <a href="#">Become a Member</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">Hiraya<span>Fit</span></a>
+                
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <button onclick="searchProducts()">Search</button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="account-dropdown" id="accountDropdown">
+                        <a href="#" id="accountBtn"><i class="fas fa-user"></i></a>
+                        <div class="account-dropdown-content" id="accountDropdownContent">
+                            <h3>My Account</h3>
+                            <a href="sign-in.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                            <a href="sign-up.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+                            <a href="#orders"><i class="fas fa-box"></i> Track Orders</a>
+                            <a href="#wishlist"><i class="fas fa-heart"></i> My Wishlist</a>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-heart"></i></a>
+                    <a href="#" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <a href="index.html">HOME</a>
+        <a href="shop.html">SHOP</a>
+        <a href="men.html">MEN</a>
+        <a href="women.html">WOMEN</a>
+        <a href="foot.html">FOOTWEAR</a>
+        <a href="acces.html">ACCESSORIES</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html" class="active">CONTACT</a>
+    </nav>
+    
+   <!-- Page Header -->
+<section class="page-header">
+    <img src="images/banner.jpg" alt="Contact Us Header Image">
+    <div class="header-overlay"></div>
+    <div class="container header-content">
+        <h1>CONTACT</h1>
+        <p>WE'RE HERE TO SUPPORT YOUR FITNESS JOURNEY</p>
+    </div>
+</section>
+    
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span class="separator"></span>
+            <span>Contact Us</span>
+        </div>
+    </div>
+    
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p>Have a question about our products, sizing, shipping, or anything else? We'd love to hear from you! Our customer support team is available to assist you with any inquiries or feedback you may have.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Visit Our Store</h3>
+                            <p>123 Fitness Street, Active City, AC 12345<br>United States</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Call Us</h3>
+                            <p>+1 (555) 123-4567<br>Mon-Fri: 9am - 6pm EST</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Us</h3>
+                            <p>support@hirayafit.com<br>customercare@hirayafit.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-container">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Map Section -->
+  <!-- Map Section -->
+<div id="map">
+<section class="map-section">
+    <div class="container">
+        <div class="map-container">
+            <!-- Google Maps iframe for Bustos, Bulacan -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30785.9507806146!2d120.98825621562499!3d14.993039400000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33397d92e9d2e0a5%3A0xa1e6c1e78fb9e575!2sBustos%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1681458678932!5m2!1sen!2sph" 
+                width="100%" 
+                height="400" 
+                style="border:0; border-radius:8px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+</div>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container faq-container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to our most commonly asked questions below. If you can't find what you're looking for, please don't hesitate to contact us.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I track my order? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can track your order by logging into your account and viewing your order history. Alternatively, you can use the Order Tracker link in the top bar of our website. You'll need your order number and the email address you used when placing the order.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is your return policy? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer a 30-day return policy for all unused items in their original packaging. Returns can be initiated through your account or by contacting our customer service team. Please note that customized items and sale items may have different return policies.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I find the right size? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Each product page has a detailed size guide specific to that item. We recommend taking your measurements and comparing them to our size charts for the best fit. If you're between sizes, we generally recommend sizing up for a more comfortable fit.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you ship internationally? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we ship to most countries worldwide. International shipping rates and delivery times vary depending on your location. You can see the shipping options available for your country during checkout.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How can I become a HirayaFit member? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can become a HirayaFit member by clicking the "Become a Member" link in the top bar or by creating an account during checkout. Membership is free and gives you access to exclusive deals, early access to new products, and rewards points on all purchases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container newsletter-container">
+            <h2>Join Our Newsletter</h2>
+            <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>About HirayaFit</h3>
+                    <p>At HirayaFit, we're dedicated to providing high-quality fitness apparel and accessories to help you perform at your best. Our mission is to inspire and support an active lifestyle through innovative products.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop All</a></li>
+                        <li><a href="men.html">Men's Collection</a></li>
+                        <li><a href="women.html">Women's Collection</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping.html">Shipping & Delivery</a></li>
+                        <li><a href="returns.html">Returns & Exchanges</a></li>
+                        <li><a href="size-guide.html">Size Guide</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                123 Fitness Street, Active City, AC 12345, United States
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                +1 (555) 123-4567
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                support@hirayafit.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 HirayaFit. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Account dropdown toggle
+        document.getElementById('accountBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('accountDropdown').classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('accountDropdown');
+            const accountBtn = document.getElementById('accountBtn');
+            
+            if (!dropdown.contains(e.target) && e.target !== accountBtn) {
+                dropdown.classList.remove('active');
+            }
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would normally send the data to a server
+            // For demonstration, we'll just show an alert
+            alert('Thank you for your message, ' + name + '! We will get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('.newsletter-input').value;
+            
+            // Here you would normally send the data to a server
+            // For demonstration, we'll just show an alert
+            alert('Thank you for subscribing with ' + email + '! You will now receive our newsletters.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Search functionality
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value;
+            
+            if (searchTerm.trim() !== '') {
+                // Here you would normally redirect to search results page
+                // For demonstration, we'll just show an alert
+                alert('Searching for: ' + searchTerm);
+            }
+        }
+        
+        // Allow search on Enter key press
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchProducts();
+            }
+        });
+    </script>
+    
+    <script src="/js/home.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/details.js"></script>
+    <script src="/js/cart.js"></script>
+
+<style>
+       /* Search Results Section */
+/* Search Results Section */
+.search-results-section {
+    display: block;
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    margin-top: 40px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.search-results-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.search-results-section h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+    position: relative;
+}
+
+.search-results-section h2:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #3498db;
+    margin: 15px auto 0;
+}
+
+.no-results {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    padding: 40px 0;
+}
+
+/* Results Grid - Modified to show exactly 4 items per row */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Product Card */
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Product Image Container */
+.product-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+/* Sale Badge */
+.sale-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+/* Product Info */
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.product-info .price {
+    font-weight: bold;
+    font-size: 18px;
+    color: #e74c3c;
+    margin: 0 0 12px;
+}
+
+.product-info .category {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin: 0 0 15px;
+}
+
+/* Star Rating */
+.product-rating {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    color: #f39c12;
+    margin-right: 5px;
+}
+
+.rating-text {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    margin-top: auto;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.add-to-cart:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .results-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .results-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .product-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-image {
+        height: 200px;
+    }
+}
+
+  </style>
+</body>
+</html>

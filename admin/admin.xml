@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<admins>
+    <admin>
+        <id>1</id>
+        <username>admin</username>
+        <password>$2y$10$hashed_admin_password</password>
+        <email>admin@activefit.com</email>
+        <last_login>2025-04-10 14:32:10</last_login>
+    </admin>
+    <!-- More admin accounts if needed -->
+</admins>

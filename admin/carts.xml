@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carts>
+    <cart>
+        <user_id>1001</user_id>
+        <date_created>2025-04-11 09:15:20</date_created>
+        <last_modified>2025-04-11 09:28:45</last_modified>
+        <items>
+            <item>
+                <product_id>2004</product_id>
+                <quantity>1</quantity>
+                <size>M</size>
+                <color>Black</color>
+            </item>
+            <item>
+                <product_id>2015</product_id>
+                <quantity>1</quantity>
+                <size>1L</size>
+                <color>Blue</color>
+            </item>
+        </items>
+    </cart>
+    <!-- More carts here -->
+</carts>

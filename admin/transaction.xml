@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transactions>
+    <transaction>
+        <id>T10001</id>
+        <user_id>1001</user_id>
+        <date>2025-04-09 10:24:33</date>
+        <amount>3700</amount>
+        <status>completed</status>
+        <payment_method>paypal</payment_method>
+        <items>
+            <item>
+                <product_id>2006</product_id>
+                <quantity>2</quantity>
+                <price>1500</price>
+            </item>
+            <item>
+                <product_id>2012</product_id>
+                <quantity>1</quantity>
+                <price>900</price>
+            </item>
+        </items>
+        <shipping>
+            <address>123 Main Street, Manila</address>
+            <contact>09123456789</contact>
+            <status>shipped</status>
+            <tracking_number>PHL123456789</tracking_number>
+        </shipping>
+    </transaction>
+    <!-- More transactions here -->
+</transactions>
